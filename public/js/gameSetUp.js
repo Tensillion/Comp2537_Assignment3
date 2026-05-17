@@ -5,7 +5,7 @@ const diffNumbers = {
 };
 
 const timeLimits = {
-	easy: 1,
+	easy: 60,
 	medium: 100,
 	hard: 120,
 };
