@@ -5,7 +5,7 @@ const diffNumbers = {
 };
 
 const timeLimits = {
-	easy: 60,
+	easy: 1,
 	medium: 100,
 	hard: 120,
 };
@@ -52,7 +52,7 @@ async function startGame(diff) {
 	gameGrid.innerHTML = "";
 
 	try {
-		const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1500");
+		const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
 
 		const data = await res.json();
 		const pokemons = data.results;
@@ -123,8 +123,8 @@ function startCountdown() {
 
 		if (timeLeft <= 0) {
 			document.getElementById("timer").textContent = `Time Remaining: GAME OVER`;
-			customAlert("Game Over!");
 			gameOver();
+			customAlert("Game Over!", "warning");
 		}
 	}, 1000);
 }
@@ -233,7 +233,7 @@ function manageCardFlipping() {
 				// Check for win condition
 				if ($(".matched").length === $(".card").length) {
 					setTimeout(() => {
-						customAlert("Congratulations! You've matched all the cards!");
+						customAlert("Congratulations! You've matched all the cards!", "success");
 						gameOver();
 					}, 500);
 				}
@@ -251,14 +251,11 @@ function manageCardFlipping() {
 
 					missedPairs++;
 					if (missedPairs >= 5) {
-						unmatchedCards = document.querySelectorAll(".card:not(.matched)");
-						unmatchedCards.forEach(card => {
-							card.classList.add("flip");
-							card.style.pointerEvents = "none";
-						});
-						//Delay the alert slightly to ensure the cards flip back before showing the message
-						customAlert("Power-Up Activated! All unmatched cards will be revealed for 2 seconds.");
-						activatePowerUp();
+						customAlert(
+							"Power-Up Activated! All unmatched cards will be revealed for 2 seconds.",
+							"success",
+							activatePowerUp
+						);
 						missedPairs = 0;
 						updateHeader();
 					}

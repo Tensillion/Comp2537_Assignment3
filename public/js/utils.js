@@ -36,13 +36,15 @@ function enableRestartButton() {
 	startButton.style.pointerEvents = "none";
 }
 
-function customAlert(message) {
+function customAlert(message, type, callback) {
 	const alertBox = document.getElementById("customAlert");
 	const alertMessage = document.getElementById("alertMessage");
+	const alertBody = document.querySelector(".alert-box");
 
 	stopGame();
 
 	alertMessage.textContent = message;
+	alertBody.classList.add(type || "info");
 	alertBox.classList.remove("hidden");
 
 	document.body.classList.add("alert-open");
@@ -50,7 +52,11 @@ function customAlert(message) {
 	document.getElementById("alertBtn").onclick = () => {
 		alertBox.classList.add("hidden");
 		document.body.classList.remove("alert-open");
-		unpauseGame();
+		alertBody.classList.remove(type || "info");
+		if (callback) {
+			unpauseGame();
+			callback();
+		}
 	};
 }
 

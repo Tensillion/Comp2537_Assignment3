@@ -14,8 +14,6 @@ body {
 	box-sizing: border-box;
 
 	border-radius: 16px;
-
-	transition: all 0.15s ease;
 }
 
 #game_grid p {
@@ -67,6 +65,7 @@ body {
 
 	margin: 0;
 	padding: 0;
+	border: none;
 
 	transition: transform 1s;
 	perspective: 1000px;
