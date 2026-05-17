@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap");
+
+:root {
+	--bg-dark: oklch(0.1 0 340);
+	--bg: oklch(0.15 0 340);
+	--bg-light: oklch(0.2 0 340);
+	--text: oklch(0.96 0 340);
+	--text-muted: oklch(0.76 0 340);
+	--highlight: oklch(0.5 0 340);
+	--border: oklch(0.4 0 340);
+	--border-muted: oklch(0.3 0 340);
+	--primary: oklch(0.76 0.1 340);
+	--secondary: oklch(0.76 0.1 160);
+	--danger: oklch(0.7 0.05 30);
+	--warning: oklch(0.7 0.05 100);
+	--success: oklch(0.7 0.05 160);
+	--info: oklch(0.7 0.05 260);
+
+	--gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+	--gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+
+	--gradient-select: linear-gradient(0deg, var(--primary), var(--secondary));
+
+	--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	background: var(--bg-dark);
+
+	font-family: "Cause", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+[data-theme="light"] {
+	--bg-dark: oklch(0.92 0 340);
+	--bg: oklch(0.96 0 340);
+	--bg-light: oklch(1 0 340);
+	--text: oklch(0.15 0 340);
+	--text-muted: oklch(0.4 0 340);
+	--highlight: oklch(1 0 340);
+	--border: oklch(0.6 0 340);
+	--border-muted: oklch(0.7 0 340);
+	--primary: oklch(0.4 0.1 340);
+	--secondary: oklch(0.4 0.1 160);
+	--danger: oklch(0.5 0.05 30);
+	--warning: oklch(0.5 0.05 100);
+	--success: oklch(0.5 0.05 160);
+	--info: oklch(0.5 0.05 260);
+
+	--gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+	--gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+
+	--gradient-select: linear-gradient(0deg, var(--primary), var(--secondary));
+
+	--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	background: oklch(0.92 0 340);
+
+	font-family: "Cause", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg-dark: oklch(0.92 0 340);
+		--bg: oklch(0.96 0 340);
+		--bg-light: oklch(1 0 340);
+		--text: oklch(0.15 0 340);
+		--text-muted: oklch(0.4 0 340);
+		--highlight: oklch(1 0 340);
+		--border: oklch(0.6 0 340);
+		--border-muted: oklch(0.7 0 340);
+		--primary: oklch(0.4 0.1 340);
+		--secondary: oklch(0.4 0.1 160);
+		--danger: oklch(0.5 0.05 30);
+		--warning: oklch(0.5 0.05 100);
+		--success: oklch(0.5 0.05 160);
+		--info: oklch(0.5 0.05 260);
+
+		--gradient: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
+		--gradient-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
+
+		--gradient-select: linear-gradient(0deg, var(--primary), var(--secondary));
+
+		--shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+		background: oklch(0.92 0 340);
+
+		font-family: "Cause", cursive;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+	}
+}
+
+body {
+	margin: 0px;
+	width: 100%;
+	height: 100vh;
+}
+
+header {
+	display: grid;
+	grid-template-columns: 0.1fr repeat(6, 1fr);
+	justify-content: space-between;
+	gap: 2em;
+	align-items: center;
+	width: 100%;
+	padding: 1em;
+	box-sizing: border-box;
+
+	background: var(--gradient);
+}
+
+#drop-down-menu {
+	margin: 0;
+	height: 100%;
+}
+
+#drop-down-button {
+	border-radius: 4px;
+	margin: 0;
+	padding: 0.5em 1em;
+
+	font-size: 100%;
+
+	background: var(--bg-light);
+	color: var(--text);
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+
+	border: solid 1px var(--border);
+	border-top: solid 1px var(--highlight);
+	border-radius: 8px;
+
+	box-shadow: var(--shadow);
+
+	transition: background 0.15s ease;
+}
+
+#drop-down-menu .content {
+	position: absolute;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 0.5em;
+	margin-top: 0.5em;
+
+	background: var(--bg);
+
+	border: solid 1px var(--border);
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+}
+
+.content a,
+.content button {
+	padding: 0.5em 1em;
+	border-radius: 4px;
+
+	font-size: 0.9em;
+
+	background: var(--bg-light);
+	color: var(--text);
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+
+	border: solid 1px var(--border);
+	border-top: solid 1px var(--highlight);
+	border-radius: 8px;
+
+	box-shadow: var(--shadow);
+
+	text-decoration: none;
+
+	transition: background 0.15s ease;
+}
+
+header p {
+	margin: 0;
+	padding: 0.5em 1em;
+	height: 90%;
+
+	font-size: 100%;
+	background: var(--bg-light);
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	font-family: "Cause", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+
+	color: var(--text);
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+button {
+	font-family: "Cause", cursive;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.page-title {
+	display: inline-block;
+	text-align: center;
+
+	font-size: 2.5em;
+
+	margin-top: 1em;
+
+	color: transparent;
+	background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+
+	background-size: 400% 400%;
+
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+	-webkit-animation: moving-text-gradient 6s linear infinite;
+	animation: moving-text-gradient 6s linear infinite;
+}
+
+#difficulty_selection {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	gap: 1em;
+	margin: 1em 0;
+}
+
+#difficulty_selection h2 {
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	color: var(--text-muted);
+	margin-bottom: 0.1em;
+}
+
+.radio-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-width: 140px;
+	box-sizing: border-box;
+	padding: 12px;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+
+	border: solid 1px var(--border);
+	border-top: solid 1px var(--highlight);
+	border-radius: 8px;
+
+	box-shadow: var(--shadow);
+
+	background: var(--gradient);
+
+	transition:
+		border-color 0.15s ease,
+		transform 0.15s ease;
+}
+
+.radio-card:hover {
+	background: var(--gradient-hover);
+	transform: translateY(-2px);
+}
+
+.radio-card:has(input[type="radio"]:checked) {
+	background: var(--gradient-hover);
+	border-color: var(--primary);
+	transform: translateY(-2px);
+}
+
+.radio-card input {
+	margin: 0;
+}
+
+#start_button,
+#restart_button {
+	color: var(--text);
+	background: var(--primary);
+	box-shadow: var(--shadow);
+
+	border: none;
+
+	border-radius: 8px;
+	padding: 12px 24px;
+	font-size: 1.2em;
+
+	transition: all 0.15s ease;
+}
+
+#start_button:hover,
+#restart_button:hover {
+	transform: translateY(-2px);
+	background: var(--secondary);
+	opacity: 0.9;
+}
+
+@-webkit-keyframes moving-text-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 400% 50%;
+	}
+}
+
+@keyframes moving-text-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 400% 50%;
+	}
+}

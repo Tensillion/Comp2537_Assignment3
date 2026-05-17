@@ -1,0 +1,94 @@
+body {
+	margin: 0px;
+}
+
+#game_grid {
+	display: grid;
+	background: var(--bg);
+	height: 60%;
+	margin: auto;
+	margin-top: 1em;
+	gap: 0px;
+
+	padding: 1em;
+	box-sizing: border-box;
+
+	border-radius: 16px;
+
+	transition: all 0.15s ease;
+}
+
+#game_grid p {
+	margin: auto;
+	font-size: 150%;
+}
+
+#game_grid.easy {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#game_grid.medium {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+#game_grid.hard {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.powerbar {
+	width: 50%;
+	height: 20px;
+	background: var(--bg-light);
+	border-radius: 10px;
+	margin: 1em auto;
+	margin-bottom: 0;
+	overflow: hidden;
+	border: 1px solid var(--border);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.powerbar-fill {
+	display: block;
+	height: 100%;
+	background: linear-gradient(90deg, var(--secondary), var(--danger));
+	transition: width 0.5s linear;
+	box-shadow: 0 0 12px color-mix(in srgb, var(--secondary) 35%, transparent);
+}
+
+.powerBar-text {
+	text-align: left;
+	color: var(--text);
+	margin-top: 0;
+	margin-bottom: 0.15em;
+}
+
+.card {
+	aspect-ratio: 1 / 1;
+
+	margin: 0;
+	padding: 0;
+
+	transition: transform 1s;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.front_face,
+.back_face {
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.flip {
+	transform: rotateY(180deg);
+}
+
+.front_face {
+	transform: rotateY(180deg);
+}

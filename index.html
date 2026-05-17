@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PokéMemory!</title>
+		<link rel="stylesheet" href="public/css/style.css" />
+		<link rel="stylesheet" href="public/css/game.css" />
+		<!-- import jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div id="drop-down-menu">
+				<button id="drop-down-button" aria-label="Menu">Menu</button>
+				<div class="content">
+					<button id="theme_toggle" aria-label="Toggle Theme">Toggle Theme</button>
+				</div>
+			</div>
+			<p id="difficulty">Difficulty: <span>N/A</span></p>
+			<p id="moves">Moves: <span>N/A</span></p>
+			<p id="pairsLeft">Pairs Left: <span>N/A</span></p>
+			<p id="pairsMatched">Pairs Matched: <span>N/A</span></p>
+			<p id="total">Total Pairs: <span>N/A</span></p>
+			<p id="timer">Time Remaining: <span>Waiting to start...</span></p>
+		</header>
+
+		<h1 class="page-title">Welcome to PokéMemory!</h1>
+		<section id="difficulty_selection" aria-label="Select Difficulty">
+			<label class="radio-card" for="difficulty-easy">
+				<input type="radio" id="difficulty-easy" name="difficulty" value="easy" checked />
+				<span>Easy - 6 Cards</span>
+			</label>
+
+			<label class="radio-card" for="difficulty-medium">
+				<input type="radio" id="difficulty-medium" name="difficulty" value="medium" />
+				<span>Medium - 12 Cards</span>
+			</label>
+
+			<label class="radio-card" for="difficulty-hard">
+				<input type="radio" id="difficulty-hard" name="difficulty" value="hard" />
+				<span>Hard - 18 Cards</span>
+			</label>
+			<button id="start_button">Start Game</button>
+			<button id="restart_button">Restart Game</button>
+		</section>
+
+		<div class="powerbar">
+			<div class="powerbar-fill"></div>
+		</div>
+		<p class="powerBar-text">Power-Up Status</p>
+		<div id="game_grid"><p>Click the Start Game button to begin!</p></div>
+
+		<script src="public/js/utils.js"></script>
+		<script src="public/js/index.js"></script>
+		<script src="public/js/gameSetUp.js"></script>
+	</body>
+</html>
