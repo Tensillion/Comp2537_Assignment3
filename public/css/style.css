@@ -320,6 +320,30 @@ button {
 	opacity: 0.9;
 }
 
+#customAlert {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 999999;
+	pointer-events: auto;
+}
+
+.hidden {
+	display: none;
+}
+
+body.alert-open {
+	overflow: hidden;
+	pointer-events: none;
+}
+
+body.alert-open #customAlert {
+	pointer-events: auto;
+}
+
 @-webkit-keyframes moving-text-gradient {
 	0% {
 		background-position: 0% 50%;

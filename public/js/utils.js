@@ -36,5 +36,23 @@ function enableRestartButton() {
 	startButton.style.pointerEvents = "none";
 }
 
+function customAlert(message) {
+	const alertBox = document.getElementById("customAlert");
+	const alertMessage = document.getElementById("alertMessage");
+
+	stopGame();
+
+	alertMessage.textContent = message;
+	alertBox.classList.remove("hidden");
+
+	document.body.classList.add("alert-open");
+
+	document.getElementById("alertBtn").onclick = () => {
+		alertBox.classList.add("hidden");
+		document.body.classList.remove("alert-open");
+		unpauseGame();
+	};
+}
+
 document.getElementById("theme_toggle").addEventListener("click", toggleTheme);
 document.getElementById("drop-down-button").addEventListener("click", toggleVisibility);

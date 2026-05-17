@@ -123,7 +123,7 @@ function startCountdown() {
 
 		if (timeLeft <= 0) {
 			document.getElementById("timer").textContent = `Time Remaining: GAME OVER`;
-			alert("Game Over!");
+			customAlert("Game Over!");
 			gameOver();
 		}
 	}, 1000);
@@ -233,7 +233,7 @@ function manageCardFlipping() {
 				// Check for win condition
 				if ($(".matched").length === $(".card").length) {
 					setTimeout(() => {
-						alert("Congratulations! You've matched all the cards!");
+						customAlert("Congratulations! You've matched all the cards!");
 						gameOver();
 					}, 500);
 				}
@@ -257,7 +257,7 @@ function manageCardFlipping() {
 							card.style.pointerEvents = "none";
 						});
 						//Delay the alert slightly to ensure the cards flip back before showing the message
-						alert("Power-Up Activated! All unmatched cards will be revealed for 2 seconds.");
+						customAlert("Power-Up Activated! All unmatched cards will be revealed for 2 seconds.");
 						activatePowerUp();
 						missedPairs = 0;
 						updateHeader();
