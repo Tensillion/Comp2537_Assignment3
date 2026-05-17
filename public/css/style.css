@@ -327,7 +327,8 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 999999;
+	z-index: 9999;
+
 	pointer-events: auto;
 }
 
@@ -336,12 +337,49 @@ button {
 }
 
 body.alert-open {
-	overflow: hidden;
-	pointer-events: none;
+	overflow: hidden; /* stop scrolling */
+	pointer-events: none; /* freeze page */
 }
 
 body.alert-open #customAlert {
-	pointer-events: auto;
+	pointer-events: auto; /* allow clicking inside alert */
+}
+
+.alert-box {
+	background: white;
+	padding: 20px 30px;
+	border-radius: 12px;
+	text-align: center;
+	width: 300px;
+	font-family: "Poppins", sans-serif;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	animation: fadeIn 0.3s ease;
+}
+
+#alertBtn {
+	margin-top: 15px;
+	padding: 8px 20px;
+	border: none;
+	background: tomato;
+	color: white;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+#alertBtn:hover {
+	background: #e03a1a;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 @-webkit-keyframes moving-text-gradient {
